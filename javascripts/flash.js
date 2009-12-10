@@ -14,6 +14,9 @@ Flash.writeDataTo = function(name, element) {
   var content = "";
   if(Flash.data[name]) {
     content = Flash.data[name].toString().replace(/\+/g, ' ');
+    element.html(unescape(content));
+    element.wrap("<div class='flash_wrapper'></div>");
+    element.toggle();
   }
-  element.html(unescape(content));
+
 };
